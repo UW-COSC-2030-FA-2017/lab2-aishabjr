@@ -1,5 +1,5 @@
 // LinkedList.cpp
-
+//Aisha Balogun Mohammed
 // tom bailey   0745  5 oct 2010
 // Definition of methods for the List class.
 
@@ -85,6 +85,7 @@ void List::print(ostream & outfile) const
 }
 
 
+
 // Iterative version of clone.
 // This version walks down the linked structure making a
 //   new Node for each double in the structure.
@@ -121,10 +122,64 @@ Node * List::clone(Node * ptr)
 //}
 
 
+
 ostream & operator<<(ostream & outfile, const List & list)
 {
 	list.print(outfile);
 	return outfile;
 }
+double List::sum() const
+{
+	if (!empty())
+	{
+		Node * ptr = first_->next_;
+		double sum = first_->entry_;
+		while (ptr != NULL)
+		{
+			sum += ptr->entry_;
+			ptr = ptr->next_;
+		}
+		return sum;
+	}
+}
+
+int List::size()
+{
+	if (!empty())
+	{
+		int count = 1;
+		Node * ptr = first_->next_;
+		while (ptr != NULL)
+		{
+			count++;
+			ptr = ptr->next_;
+		}
+		return count;
+	}
+}
+
+void List::insertAsLast(double x)
+{
+	if (empty())
+	{
+		first_ = new Node(x);
+	}
+
+	if (!empty())
+	{
+		Node * ptr = first_->next_;
+		while (ptr->next_ != NULL)
+		{
+			ptr = ptr->next_;
+		}
+		ptr->next_ = new Node(x, NULL);
+	}
+}
+
+
+
+
+
+
 
 
