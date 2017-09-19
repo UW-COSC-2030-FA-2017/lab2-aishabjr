@@ -1,5 +1,5 @@
 // LinkedList.h
-
+//Aisha Balogun Mohammed
 // tom bailey   0740  5 oct 2010
 // Declaration of the List class.
 
@@ -15,7 +15,7 @@
 #include <iostream>
 using std::ostream;
 
-#include "Node.cpp"
+#include "Node.h"
 
 #define ulong unsigned long
 
@@ -43,6 +43,7 @@ public:
 	//         in other
 	const List & operator=(const List & other);
 
+	int Size(Node * head);
 
 	//*** Accessors ***
 
@@ -66,6 +67,12 @@ public:
 	//         from this List and has been returned.
 	double removeFirst();
 
+	double sum() const;
+
+	int size();
+
+	void insertAsLast(double x);
+
 private:
 	//*** Inaccessible standard functions ***
 
@@ -88,5 +95,6 @@ private:
 
 // post: the doubles in list have been written to outfile
 ostream & operator<<(ostream & outfile, const List & list);
+
 
 #endif
